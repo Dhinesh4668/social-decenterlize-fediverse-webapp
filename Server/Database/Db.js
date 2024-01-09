@@ -1,7 +1,7 @@
 const pgp = require('pg-promise')();
 
 // db 
-const db = pgp('');
+const db = pgp(process.env.SUPABASE_DB_URL);
 
 db.any('SELECT 1').then(()=>{
     console.log("connecting the databse")
