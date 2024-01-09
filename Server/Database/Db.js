@@ -1,7 +1,7 @@
 const pgp = require('pg-promise')();
 
 // db 
-const db = pgp('postgresql://postgres:dhineshkumar@db.tbdkpgnorufculvvpvds.supabase.co:5432/postgres');
+const db = pgp('');
 
 db.any('SELECT 1').then(()=>{
     console.log("connecting the databse")
