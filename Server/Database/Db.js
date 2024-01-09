@@ -1,14 +1,21 @@
-const pgp = require('pg-promise')();
+const {Pool} = require('pg');
 
-// db 
-const db = pgp(process.env.SUPABASE_DB_URL);
+// env
+const HOST_PORT = process.env.PORT_NO;
+const data_host = process.env.DB_HOST;
+const data_port = process.env.DB_PORT;
+const data_user = process.env.DB_USER;
+const data_database = process.env.DB_DATABASE;
+const data_pass = process.env.DB_PASS;
 
-db.any('SELECT 1').then(()=>{
-    console.log("connecting the databse")
+// db config 
+const database = new Pool({
+    user: data_user,
+    host: data_host,
+    database: data_database,
+    port: data_port,
+    password: data_pass
 })
 
-.catch(err=>{
-    console.log('error to connecting database', err);
-})
 
-export default db;
+module.exports = database;

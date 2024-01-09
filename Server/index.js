@@ -1,17 +1,19 @@
-import express from 'express'
-
-import { feedPost } from './routes/feedPost';
-import { auth } from './routes/auth';
-import db from './Database/Db';
+const express = require('express');
+// const DataBase = require('./Database/Db');
+const database = require('./Database/Db');
 require('dotenv').config();
 const app = express();
-app.use(express.json())
-// initagte the bd 
-db();
-// feed router
-app.use("/api/feed", feedPost);
-// app.use("/api/create", feedPost);
-app.use("/api/auth", auth);
-// app.use("/api/users", feedPost);
+const HOST_PORT = process.env.PORT_NO;
 
-app.listen(process.env.PORT_NO,()=> console.log(`server started.... \nhttp://localhost:8080/`))
+// database
+database.connect((err)=>{
+    if(err) console.log(err);
+    console.log("connected :)")
+})
+
+// restAPI
+app.get('/',(req, res)=>{
+    res.send("this root page")
+})
+
+app.listen(HOST_PORT ,()=> console.log(`server start`))
