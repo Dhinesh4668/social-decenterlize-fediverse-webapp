@@ -1,6 +1,6 @@
 import React from 'react'
 import {AppBar, Box, Toolbar,Typography,InputBase} from '@mui/material'
-// import SearchIcon from '@mui/'
+import SearchIcon from '@mui/icons-material'
 import { styled, alpha } from '@mui/material/styles';
 const NavComponent = () => {
   return (
