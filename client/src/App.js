@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import {  ChatScreen, GroupServer, HomeScreen, MicroBlog, Profile, Setting } from './Screens'
+import PageNotfound from './Components/404-page/PageNotfound'
+import NavComponent from './Components/Nav/NavComponent'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+    <NavComponent />
+      <Routes>
+        <Route path='/' element={<HomeScreen />}/>
+        <Route path='/chat' element={<ChatScreen />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/group' element={<GroupServer />} />
+        <Route path='/blog' element={<MicroBlog />} />
+        <Route path='/setting' element={<Setting />} />
+        <Route path='*' element={<PageNotfound />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
