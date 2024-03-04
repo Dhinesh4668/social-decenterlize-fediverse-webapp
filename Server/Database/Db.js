@@ -1,14 +1,18 @@
-const pgp = require('pg-promise')();
+const mongoose = require('mongoose')
+const uri = "localhost:27017";
 
-// db 
-const db = pgp(process.env.SUPABASE_DB_URL);
 
-db.any('SELECT 1').then(()=>{
-    console.log("connecting the databse")
-})
+const newConnectionParams = {
+    useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true
+}
 
-.catch(err=>{
-    console.log('error to connecting database', err);
-})
+const Database = () =>{
+    mongoose.connect(uri);
+    const databse = mongoose.connection;
 
-export default db;
+    databse.on('error', err => console.error(err));
+    databse.on('open', ()=> console.log("database connected...."))
+}
+
+
+module.exports = Database
