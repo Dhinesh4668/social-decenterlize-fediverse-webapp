@@ -1,0 +1,15 @@
+{
+  "name": "social-decenterlize-fediverse-webapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "android": "cd ibear && npm run android",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "android-rel": "cd ibear && npm run android -- --mode=release",
+    "server": "cd server && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
