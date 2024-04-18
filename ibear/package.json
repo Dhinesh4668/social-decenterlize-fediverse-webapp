@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@hugeicons/react-native-pro": "^0.1.6",
     "@react-native-async-storage/async-storage": "^1.23.1",
     "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/drawer": "^6.6.15",
